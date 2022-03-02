@@ -1,4 +1,3 @@
-=======
 # This tells your python backend that your using Flask
 from flask import Flask 
 # Initializing application
@@ -15,13 +14,12 @@ api = Api(app)
 app.config['MONGODB_SETTINGS'] = {
 
 
-    'host': 'mongodb+srv://irondev:Stones6@cluster0.yuffb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    'host': 'mongodb://localhost/cook-book'
 
 }
 
 initialize_db(app)
 initialize_routes(api)
 
-=======
 app.run(debug=True)
 
