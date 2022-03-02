@@ -1,3 +1,5 @@
+from ast import Delete
+import mimetypes
 from flask import Response, request
 from database.models import Recipe
 from flask_restful import Resource
@@ -18,16 +20,18 @@ class RecipesApi(Resource):
         id = recipe.id
         return {"id": str(id)}
 
+=======
+# Update
 class RecipeApi(Resource):
-    def put(self, id):
+    def put(self,id):
         body = request.get_json()
-        Recipe.objects.get(id=id).update(**body)
+        Recipe.objects.get(id = id).update(**body)
+        return ''
+# Delete
+    def delete(self,id):
+        recipe = Recipe.objects.get(id = id).delete()
         return ''
 
-    def delete(self, id):
-        recipe = Recipe.objects.get(id=id).delete()
-        return ''
-
-    def get(self, id):
-        recipes = Recipe.objects.get(id=id).to_json()
-        return Response(recipes, mimetype="application/json")
+    def get(self,id):
+        recipes = Recipe.objects.get(id = id).to_json()
+        return Response(recipes, mimetype = "application/json") 
