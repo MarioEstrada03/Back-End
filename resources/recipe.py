@@ -1,7 +1,7 @@
 from ast import Delete
 import mimetypes
 from flask import Response, request
-from database.models import Recipes
+from database.models import Recipe
 from flask_restful import Resource
 
 
@@ -19,6 +19,8 @@ class RecipesApi(Resource):
         recipe = Recipe(**body).save()
         id = recipe.id
         return {"id": str(id)}
+
+=======
 # Update
 class RecipeApi(Resource):
     def put(self,id):
