@@ -20,7 +20,6 @@ class RecipesApi(Resource):
         id = recipe.id
         return {"id": str(id)}
 
-=======
 # Update
 class RecipeApi(Resource):
     def put(self,id):
