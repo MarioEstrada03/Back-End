@@ -4,12 +4,14 @@ from flask import Flask
 from database.db import initialize_db
 # Interface with import Api for backend
 from flask_restful import Api
-# Initializing routes 
+# Initializing routes
+from flask_cors import CORS 
 
 from resources.routes import initialize_routes
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 app.config['MONGODB_SETTINGS'] = {
 
